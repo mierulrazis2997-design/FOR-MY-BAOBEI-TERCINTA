@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOR MY BABY KU TERCINTA 💖</title>
+<style>
+  body {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+
+  button {
+    background-color: #fff;
+    color: #ff6f91;
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  .message {
+    margin-top: 25px;
+    max-width: 600px;
+    font-size: 1.2em;
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+
+  .message.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hearts animation */
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 2s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-150px) scale(1.5);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>HI ISTERIKU TERSAYANG 💖</h1>
+
+<button data-msg="msg1">Click Me 💖</button>
+<button data-msg="msg2">Another Surprise 🌸</button>
+<button data-msg="msg3">More Love 💌</button>
+<button data-msg="msg4">Sweet Words ✨</button>
+<button data-msg="msg5">Final Surprise 🌹</button>
+
+<div id="msg1" class="message">I NAK BABY TAHU YANG I SANGAT CINTAKAN SAYANG.RASA CINTA I DEKAT SAYANG SEPENUHNYA IKHLAS🩷.</div>
+<div id="msg2" class="message">I TAHU AT PAST I BANYAK SAKIT KAN HATI SAYANG.TAPI I BUKAN LAH LELAKI YANG PERNAH SAYANG KENAL DULU🥰❤️.</div>
+<div id="msg3" class="message">I JANJI I AKAN SENTIASA BERPEGANG DENGAN KATA KATA I .I AKAN JAGA HATI PERASAAN SAYANG.I AKAN BUAT SAYANG BAHAGIA.DAN I AKAN JADI LELAKI YANG TERBAIK UNTUK SAYANG🥰💕💕.</div>
+<div id="msg4" class="message">I JANJI I XKN PERNAH BREAK UR HEART AGAIN LIKE I DID DEKAT PAST BABY KU TERSAYANG. I TRULY HOPE SOON U’ll GONNA GIVE ME ONE MORE LAST CHANCE UNTUK I BUKTIKAN YANG I CHANGED AND I CAN TREAT U AND LOVE U CORRECTLY💖</div>
+<div id="msg5" class="message">GOOD NIGHT MYLOVE KU TERCINTA SWEETDREAM SAYANG SEMOGA RASA PENAT SAYANG HILANG AND U SEDAR BERTAPA SAYANG NYA I DEKAT BABY.DAN I TRULY HOPE WE HAVE OUR TIME TOGETHER NNTI WAKTU DAYING BECAUSE I PUT MUCH HOPE ON MY PLAN YANG I MAKE FOR US.I HOPE ITU AKAN JADI HARI YANG INDAH DAN XKN JADI HARI YANG SEDIH FOR ME AND U☺️I LOVE U SOOMUCH SAYANG GOH JIA ZHEN. 🌹</div>
+
+<script>
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const msgId = btn.getAttribute('data-msg');
+    const msg = document.getElementById(msgId);
+    msg.classList.add('show');
+
+    // Disable button after click
+    btn.disabled = true;
+    btn.style.opacity = 0.6;
+
+    // Create hearts
+    for(let i = 0; i < 5; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '💖';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+      heart.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
+      document.body.appendChild(heart);
+
+      // Remove heart after animation
+      heart.addEventListener('animationend', () => {
+        heart.remove();
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
